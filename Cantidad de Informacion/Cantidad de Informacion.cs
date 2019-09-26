@@ -31,7 +31,7 @@ namespace Cantidad_de_Informacion
                     if (!chars.Contains(caracter))
                     {
                         // Crea un nuevo elemento analizado y aumenta el orden aparicion en el texto
-                        hashtable.Add(num, new Element {Caracter = caracter, Ocurrencias = 1});
+                        hashtable.Add(num, new Element(caracter));
                         chars.Add(caracter);
                         num += 1;
                     }
@@ -52,7 +52,7 @@ namespace Cantidad_de_Informacion
                 else
                 {
                     // Crea el elemento del primer caracter (unica ejecucion)
-                    hashtable.Add(num, new Element {Caracter = caracter, Ocurrencias = 1});
+                    hashtable.Add(num, new Element(caracter));
                     chars.Add(caracter);
                     num += 1;
                 }

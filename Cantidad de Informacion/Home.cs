@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Cantidad_de_Informacion
 {
-    public partial class Form1 : Form
+    public partial class formHome : Form
     {
-        public Form1()
+        public formHome()
         {
             InitializeComponent();
         }

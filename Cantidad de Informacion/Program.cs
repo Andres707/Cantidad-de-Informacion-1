@@ -16,7 +16,7 @@ namespace Cantidad_de_Informacion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new formHome());
         }
     }
 }
