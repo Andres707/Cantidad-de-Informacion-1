@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -69,7 +70,14 @@ namespace Cantidad_de_Informacion
 
         private void BtnFile_Click(object sender, EventArgs e)
         {
+            openFileDialog.ShowDialog(this);
 
+            if (openFileDialog.CheckFileExists)
+            {
+                lblFilename.Text = openFileDialog.FileName;
+
+                richTxtBxSource.Text = File.ReadAllText(openFileDialog.FileName);
+            }
         }
 
         private void BtnCalculate_Click(object sender, EventArgs e)

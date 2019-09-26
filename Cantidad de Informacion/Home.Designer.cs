@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lblTitle = new System.Windows.Forms.Label();
             this.grpBxInfo = new System.Windows.Forms.GroupBox();
             this.btnShowHide = new System.Windows.Forms.Button();
@@ -46,6 +46,7 @@
             this.splitContResult = new System.Windows.Forms.SplitContainer();
             this.treeInfo = new System.Windows.Forms.TreeView();
             this.chartEntropy = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.grpBxInfo.SuspendLayout();
             this.toolStripCont.BottomToolStripPanel.SuspendLayout();
             this.toolStripCont.ContentPanel.SuspendLayout();
@@ -238,20 +239,27 @@
             // 
             // chartEntropy
             // 
-            chartArea8.Name = "ChartArea1";
-            this.chartEntropy.ChartAreas.Add(chartArea8);
+            chartArea1.Name = "ChartArea1";
+            this.chartEntropy.ChartAreas.Add(chartArea1);
             this.chartEntropy.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend8.Name = "Legend1";
-            this.chartEntropy.Legends.Add(legend8);
+            legend1.Name = "Legend1";
+            this.chartEntropy.Legends.Add(legend1);
             this.chartEntropy.Location = new System.Drawing.Point(0, 0);
             this.chartEntropy.Name = "chartEntropy";
-            series8.ChartArea = "ChartArea1";
-            series8.Legend = "Legend1";
-            series8.Name = "Series1";
-            this.chartEntropy.Series.Add(series8);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartEntropy.Series.Add(series1);
             this.chartEntropy.Size = new System.Drawing.Size(661, 266);
             this.chartEntropy.TabIndex = 0;
             this.chartEntropy.Text = "Entropia";
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.AddExtension = false;
+            this.openFileDialog.DefaultExt = "txt";
+            this.openFileDialog.Filter = "Archivos de Texto|(*.txt)";
+            this.openFileDialog.Title = "Cantidad de Informacion";
             // 
             // formHome
             // 
@@ -303,6 +311,7 @@
         private System.Windows.Forms.SplitContainer splitContResult;
         private System.Windows.Forms.TreeView treeInfo;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartEntropy;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }
 
