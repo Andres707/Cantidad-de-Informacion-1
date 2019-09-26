@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lblTitle = new System.Windows.Forms.Label();
             this.grpBxInfo = new System.Windows.Forms.GroupBox();
             this.btnShowHide = new System.Windows.Forms.Button();
@@ -96,6 +96,7 @@
             this.btnShowHide.TabIndex = 5;
             this.btnShowHide.Text = "MOSTRAR";
             this.btnShowHide.UseVisualStyleBackColor = true;
+            this.btnShowHide.Click += new System.EventHandler(this.BtnShowHide_Click);
             // 
             // btnCalculate
             // 
@@ -106,6 +107,7 @@
             this.btnCalculate.TabIndex = 4;
             this.btnCalculate.Text = "CALCULAR";
             this.btnCalculate.UseVisualStyleBackColor = true;
+            this.btnCalculate.Click += new System.EventHandler(this.BtnCalculate_Click);
             // 
             // lblFilename
             // 
@@ -124,6 +126,7 @@
             this.btnFile.TabIndex = 2;
             this.btnFile.Text = "ARCHIVO";
             this.btnFile.UseVisualStyleBackColor = true;
+            this.btnFile.Click += new System.EventHandler(this.BtnFile_Click);
             // 
             // radBtnFile
             // 
@@ -135,6 +138,7 @@
             this.radBtnFile.TabStop = true;
             this.radBtnFile.Text = "Archivo";
             this.radBtnFile.UseVisualStyleBackColor = true;
+            this.radBtnFile.CheckedChanged += new System.EventHandler(this.RadBtnFile_CheckedChanged);
             // 
             // radBtnText
             // 
@@ -146,6 +150,7 @@
             this.radBtnText.TabStop = true;
             this.radBtnText.Text = "Texto";
             this.radBtnText.UseVisualStyleBackColor = true;
+            this.radBtnText.CheckedChanged += new System.EventHandler(this.RadBtnText_CheckedChanged);
             // 
             // toolStripCont
             // 
@@ -202,6 +207,7 @@
             this.richTxtBxSource.Size = new System.Drawing.Size(1162, 210);
             this.richTxtBxSource.TabIndex = 0;
             this.richTxtBxSource.Text = "";
+            this.richTxtBxSource.TextChanged += new System.EventHandler(this.RichTxtBxSource_TextChanged);
             // 
             // splitContResult
             // 
@@ -232,17 +238,17 @@
             // 
             // chartEntropy
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartEntropy.ChartAreas.Add(chartArea1);
+            chartArea8.Name = "ChartArea1";
+            this.chartEntropy.ChartAreas.Add(chartArea8);
             this.chartEntropy.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Name = "Legend1";
-            this.chartEntropy.Legends.Add(legend1);
+            legend8.Name = "Legend1";
+            this.chartEntropy.Legends.Add(legend8);
             this.chartEntropy.Location = new System.Drawing.Point(0, 0);
             this.chartEntropy.Name = "chartEntropy";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartEntropy.Series.Add(series1);
+            series8.ChartArea = "ChartArea1";
+            series8.Legend = "Legend1";
+            series8.Name = "Series1";
+            this.chartEntropy.Series.Add(series8);
             this.chartEntropy.Size = new System.Drawing.Size(661, 266);
             this.chartEntropy.TabIndex = 0;
             this.chartEntropy.Text = "Entropia";
@@ -259,6 +265,7 @@
             this.Name = "formHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
+            this.Load += new System.EventHandler(this.FormHome_Load);
             this.grpBxInfo.ResumeLayout(false);
             this.grpBxInfo.PerformLayout();
             this.toolStripCont.BottomToolStripPanel.ResumeLayout(false);
