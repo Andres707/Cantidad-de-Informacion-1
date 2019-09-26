@@ -15,5 +15,10 @@
             element.Ocurrencias += 1;
             return element;
         }
+
+        public static string probFraccion(this Element element, int cantidadTotal)
+        {
+            return element.Ocurrencias + "/" + cantidadTotal;
+        }
     }
 }
