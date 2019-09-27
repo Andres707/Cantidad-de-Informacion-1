@@ -1,4 +1,6 @@
-﻿namespace Cantidad_de_Informacion
+﻿using System;
+
+namespace Cantidad_de_Informacion
 {
     /// <summary>
     ///     Definicion de clase elementExtension para extensiones de la clase ELement
@@ -19,6 +21,22 @@
         public static string probFraccion(this Element element, int cantidadTotal)
         {
             return element.Ocurrencias + "/" + cantidadTotal;
+        }
+
+        public static void probabilidad(this Element element, decimal cantidadTotal)
+        {
+            element.Probabilidad = element.Ocurrencias / cantidadTotal;
+        }
+
+        public static void informacion(this Element element)
+        {
+            element.Informacion = (decimal) Math.Log( 1.0 / (double) element.Probabilidad, 2);
+        }
+
+        public static decimal entropia(this Element element)
+        {
+            element.Entropia = element.Informacion * element.Probabilidad;
+            return element.Entropia;
         }
     }
 }
