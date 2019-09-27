@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -78,7 +72,7 @@ namespace Cantidad_de_Informacion
 
         private void BtnFile_Click(object sender, EventArgs e)
         {
-            if( openFileDialog.ShowDialog(this) == DialogResult.OK)
+            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
                 lblFilename.Text = openFileDialog.FileName;
 
@@ -89,7 +83,7 @@ namespace Cantidad_de_Informacion
         private void BtnCalculate_Click(object sender, EventArgs e)
         {
             var texto = richTxtBxSource.Text;
-            Hashtable caracteres = Cantidad_de_Informacion.analizarTexto(texto);
+            var caracteres = Cantidad_de_Informacion.analizarTexto(texto);
             decimal entropiaTotal = 0;
 
             foreach (DictionaryEntry entry in caracteres)
@@ -100,15 +94,15 @@ namespace Cantidad_de_Informacion
                 element.informacion();
                 entropiaTotal += element.entropia();
 
-                double x = Double.Parse(entry.Key.ToString());
+                var x = double.Parse(entry.Key.ToString());
 
                 chartEntropy.Series["Informacion"].Points.AddXY(x, (double) element.Informacion);
                 chartEntropy.Series["Entropia"].Points.AddXY(x, (double) element.Entropia);
                 treeInfo.Nodes.Add(entry.Key.ToString(), element.Caracter + " - " + element.probFraccion(texto.Length));
             }
 
-            toolStripStLblEntropy.Text = "Entropia: " + entropiaTotal.ToString();
-            toolStripStLblTotal.Text = texto.Length.ToString() + " caracteres analizados";
+            toolStripStLblEntropy.Text = "Entropia: " + entropiaTotal;
+            toolStripStLblTotal.Text = texto.Length + " caracteres analizados";
 
             btnShowHide.Enabled = true;
             splitContMain.Panel2Collapsed = false;

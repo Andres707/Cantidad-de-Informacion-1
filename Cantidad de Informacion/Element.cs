@@ -21,7 +21,7 @@
         public decimal Entropia { get; set; }
 
         /// <summary>
-        /// Define el constructor de un elemento inicial
+        ///     Define el constructor de un elemento inicial
         /// </summary>
         /// <param name="caracter">Caracter que sera guardado</param>
         public Element(char caracter)
