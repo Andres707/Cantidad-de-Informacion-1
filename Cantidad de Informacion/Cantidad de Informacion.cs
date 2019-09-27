@@ -61,5 +61,6 @@ namespace Cantidad_de_Informacion
             // Regresa el analisis del texto
             return hashtable;
         }
+
     }
 }
