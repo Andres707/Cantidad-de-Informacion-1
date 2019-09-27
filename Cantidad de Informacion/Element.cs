@@ -11,6 +11,9 @@
         // Representa el numero de ocurrencias que tiene el caracter.
         public int Ocurrencias { get; set; }
 
+        // Representa la probabilidad del caracter dentro del sistema
+        public decimal Probabilidad { get; set; }
+
         // Representa la cantidad de informacion que aporta al sistema
         public decimal Informacion { get; set; }
 
