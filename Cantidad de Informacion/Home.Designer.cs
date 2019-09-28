@@ -30,7 +30,6 @@
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lblTitle = new System.Windows.Forms.Label();
             this.grpBxInfo = new System.Windows.Forms.GroupBox();
             this.btnShowHide = new System.Windows.Forms.Button();
@@ -41,15 +40,19 @@
             this.radBtnText = new System.Windows.Forms.RadioButton();
             this.toolStripCont = new System.Windows.Forms.ToolStripContainer();
             this.stStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStLblTotal = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStLblEntropy = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContMain = new System.Windows.Forms.SplitContainer();
             this.richTxtBxSource = new System.Windows.Forms.RichTextBox();
             this.splitContResult = new System.Windows.Forms.SplitContainer();
             this.treeInfo = new System.Windows.Forms.TreeView();
             this.chartEntropy = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.grpBxInfo.SuspendLayout();
             this.toolStripCont.BottomToolStripPanel.SuspendLayout();
             this.toolStripCont.ContentPanel.SuspendLayout();
             this.toolStripCont.SuspendLayout();
+            this.stStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContMain)).BeginInit();
             this.splitContMain.Panel1.SuspendLayout();
             this.splitContMain.Panel2.SuspendLayout();
@@ -96,6 +99,7 @@
             this.btnShowHide.TabIndex = 5;
             this.btnShowHide.Text = "MOSTRAR";
             this.btnShowHide.UseVisualStyleBackColor = true;
+            this.btnShowHide.Click += new System.EventHandler(this.BtnShowHide_Click);
             // 
             // btnCalculate
             // 
@@ -106,6 +110,7 @@
             this.btnCalculate.TabIndex = 4;
             this.btnCalculate.Text = "CALCULAR";
             this.btnCalculate.UseVisualStyleBackColor = true;
+            this.btnCalculate.Click += new System.EventHandler(this.BtnCalculate_Click);
             // 
             // lblFilename
             // 
@@ -124,6 +129,7 @@
             this.btnFile.TabIndex = 2;
             this.btnFile.Text = "ARCHIVO";
             this.btnFile.UseVisualStyleBackColor = true;
+            this.btnFile.Click += new System.EventHandler(this.BtnFile_Click);
             // 
             // radBtnFile
             // 
@@ -135,6 +141,7 @@
             this.radBtnFile.TabStop = true;
             this.radBtnFile.Text = "Archivo";
             this.radBtnFile.UseVisualStyleBackColor = true;
+            this.radBtnFile.CheckedChanged += new System.EventHandler(this.RadBtnFile_CheckedChanged);
             // 
             // radBtnText
             // 
@@ -146,6 +153,7 @@
             this.radBtnText.TabStop = true;
             this.radBtnText.Text = "Texto";
             this.radBtnText.UseVisualStyleBackColor = true;
+            this.radBtnText.CheckedChanged += new System.EventHandler(this.RadBtnText_CheckedChanged);
             // 
             // toolStripCont
             // 
@@ -157,7 +165,7 @@
             // toolStripCont.ContentPanel
             // 
             this.toolStripCont.ContentPanel.Controls.Add(this.splitContMain);
-            this.toolStripCont.ContentPanel.Size = new System.Drawing.Size(1162, 480);
+            this.toolStripCont.ContentPanel.Size = new System.Drawing.Size(1162, 451);
             this.toolStripCont.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripCont.Location = new System.Drawing.Point(0, 171);
             this.toolStripCont.Name = "toolStripCont";
@@ -169,10 +177,28 @@
             // 
             this.stStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.stStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.stStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStLblTotal,
+            this.toolStripStLblEntropy});
             this.stStrip.Location = new System.Drawing.Point(0, 0);
             this.stStrip.Name = "stStrip";
-            this.stStrip.Size = new System.Drawing.Size(1162, 22);
+            this.stStrip.Size = new System.Drawing.Size(1162, 26);
             this.stStrip.TabIndex = 0;
+            // 
+            // toolStripStLblTotal
+            // 
+            this.toolStripStLblTotal.Name = "toolStripStLblTotal";
+            this.toolStripStLblTotal.Size = new System.Drawing.Size(1049, 20);
+            this.toolStripStLblTotal.Spring = true;
+            this.toolStripStLblTotal.Text = "Total Caracteres";
+            this.toolStripStLblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // toolStripStLblEntropy
+            // 
+            this.toolStripStLblEntropy.Enabled = false;
+            this.toolStripStLblEntropy.Name = "toolStripStLblEntropy";
+            this.toolStripStLblEntropy.Size = new System.Drawing.Size(98, 20);
+            this.toolStripStLblEntropy.Text = "EntropiaTotal";
             // 
             // splitContMain
             // 
@@ -190,8 +216,8 @@
             // 
             this.splitContMain.Panel2.Controls.Add(this.splitContResult);
             this.splitContMain.Panel2MinSize = 250;
-            this.splitContMain.Size = new System.Drawing.Size(1162, 480);
-            this.splitContMain.SplitterDistance = 210;
+            this.splitContMain.Size = new System.Drawing.Size(1162, 451);
+            this.splitContMain.SplitterDistance = 197;
             this.splitContMain.TabIndex = 0;
             // 
             // richTxtBxSource
@@ -199,9 +225,10 @@
             this.richTxtBxSource.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTxtBxSource.Location = new System.Drawing.Point(0, 0);
             this.richTxtBxSource.Name = "richTxtBxSource";
-            this.richTxtBxSource.Size = new System.Drawing.Size(1162, 210);
+            this.richTxtBxSource.Size = new System.Drawing.Size(1162, 197);
             this.richTxtBxSource.TabIndex = 0;
             this.richTxtBxSource.Text = "";
+            this.richTxtBxSource.TextChanged += new System.EventHandler(this.RichTxtBxSource_TextChanged);
             // 
             // splitContResult
             // 
@@ -217,8 +244,8 @@
             // splitContResult.Panel2
             // 
             this.splitContResult.Panel2.Controls.Add(this.chartEntropy);
-            this.splitContResult.Panel2MinSize = 660;
-            this.splitContResult.Size = new System.Drawing.Size(1162, 266);
+            this.splitContResult.Panel2MinSize = 600;
+            this.splitContResult.Size = new System.Drawing.Size(1162, 250);
             this.splitContResult.SplitterDistance = 497;
             this.splitContResult.TabIndex = 0;
             // 
@@ -227,7 +254,7 @@
             this.treeInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeInfo.Location = new System.Drawing.Point(0, 0);
             this.treeInfo.Name = "treeInfo";
-            this.treeInfo.Size = new System.Drawing.Size(497, 266);
+            this.treeInfo.Size = new System.Drawing.Size(497, 250);
             this.treeInfo.TabIndex = 0;
             // 
             // chartEntropy
@@ -239,13 +266,16 @@
             this.chartEntropy.Legends.Add(legend1);
             this.chartEntropy.Location = new System.Drawing.Point(0, 0);
             this.chartEntropy.Name = "chartEntropy";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartEntropy.Series.Add(series1);
-            this.chartEntropy.Size = new System.Drawing.Size(661, 266);
+            this.chartEntropy.Size = new System.Drawing.Size(661, 250);
             this.chartEntropy.TabIndex = 0;
             this.chartEntropy.Text = "Entropia";
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.AddExtension = false;
+            this.openFileDialog.DefaultExt = "*.txt";
+            this.openFileDialog.Filter = "Archivo (.txt)|*.txt";
+            this.openFileDialog.Title = "Cantidad de Informacion";
             // 
             // formHome
             // 
@@ -259,6 +289,8 @@
             this.Name = "formHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FormHome_Load);
             this.grpBxInfo.ResumeLayout(false);
             this.grpBxInfo.PerformLayout();
             this.toolStripCont.BottomToolStripPanel.ResumeLayout(false);
@@ -266,6 +298,8 @@
             this.toolStripCont.ContentPanel.ResumeLayout(false);
             this.toolStripCont.ResumeLayout(false);
             this.toolStripCont.PerformLayout();
+            this.stStrip.ResumeLayout(false);
+            this.stStrip.PerformLayout();
             this.splitContMain.Panel1.ResumeLayout(false);
             this.splitContMain.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContMain)).EndInit();
@@ -296,6 +330,9 @@
         private System.Windows.Forms.SplitContainer splitContResult;
         private System.Windows.Forms.TreeView treeInfo;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartEntropy;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStLblTotal;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStLblEntropy;
     }
 }
 
