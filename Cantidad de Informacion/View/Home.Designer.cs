@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formHome));
             this.lblTitle = new System.Windows.Forms.Label();
             this.grpBxInfo = new System.Windows.Forms.GroupBox();
             this.btnShowHide = new System.Windows.Forms.Button();
@@ -48,6 +49,7 @@
             this.treeInfo = new System.Windows.Forms.TreeView();
             this.chartEntropy = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.toolStripStLblAuthor = new System.Windows.Forms.ToolStripStatusLabel();
             this.grpBxInfo.SuspendLayout();
             this.toolStripCont.BottomToolStripPanel.SuspendLayout();
             this.toolStripCont.ContentPanel.SuspendLayout();
@@ -67,9 +69,10 @@
             // lblTitle
             // 
             this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblTitle.Font = new System.Drawing.Font("MS Reference Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(1162, 69);
+            this.lblTitle.Size = new System.Drawing.Size(1162, 70);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "CANTIDAD DE INFORMACION";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -83,7 +86,7 @@
             this.grpBxInfo.Controls.Add(this.radBtnFile);
             this.grpBxInfo.Controls.Add(this.radBtnText);
             this.grpBxInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grpBxInfo.Location = new System.Drawing.Point(0, 69);
+            this.grpBxInfo.Location = new System.Drawing.Point(0, 70);
             this.grpBxInfo.Name = "grpBxInfo";
             this.grpBxInfo.Size = new System.Drawing.Size(1162, 102);
             this.grpBxInfo.TabIndex = 1;
@@ -93,9 +96,10 @@
             // btnShowHide
             // 
             this.btnShowHide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnShowHide.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowHide.Location = new System.Drawing.Point(991, 26);
             this.btnShowHide.Name = "btnShowHide";
-            this.btnShowHide.Size = new System.Drawing.Size(100, 40);
+            this.btnShowHide.Size = new System.Drawing.Size(115, 40);
             this.btnShowHide.TabIndex = 5;
             this.btnShowHide.Text = "MOSTRAR";
             this.btnShowHide.UseVisualStyleBackColor = true;
@@ -104,9 +108,10 @@
             // btnCalculate
             // 
             this.btnCalculate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCalculate.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCalculate.Location = new System.Drawing.Point(778, 26);
             this.btnCalculate.Name = "btnCalculate";
-            this.btnCalculate.Size = new System.Drawing.Size(120, 40);
+            this.btnCalculate.Size = new System.Drawing.Size(130, 40);
             this.btnCalculate.TabIndex = 4;
             this.btnCalculate.Text = "CALCULAR";
             this.btnCalculate.UseVisualStyleBackColor = true;
@@ -115,17 +120,19 @@
             // lblFilename
             // 
             this.lblFilename.AutoSize = true;
+            this.lblFilename.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFilename.Location = new System.Drawing.Point(439, 38);
             this.lblFilename.Name = "lblFilename";
-            this.lblFilename.Size = new System.Drawing.Size(129, 17);
+            this.lblFilename.Size = new System.Drawing.Size(135, 18);
             this.lblFilename.TabIndex = 3;
             this.lblFilename.Text = "Nombre de Archivo";
             // 
             // btnFile
             // 
+            this.btnFile.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFile.Location = new System.Drawing.Point(306, 28);
             this.btnFile.Name = "btnFile";
-            this.btnFile.Size = new System.Drawing.Size(100, 40);
+            this.btnFile.Size = new System.Drawing.Size(115, 40);
             this.btnFile.TabIndex = 2;
             this.btnFile.Text = "ARCHIVO";
             this.btnFile.UseVisualStyleBackColor = true;
@@ -134,9 +141,10 @@
             // radBtnFile
             // 
             this.radBtnFile.AutoSize = true;
+            this.radBtnFile.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radBtnFile.Location = new System.Drawing.Point(126, 38);
             this.radBtnFile.Name = "radBtnFile";
-            this.radBtnFile.Size = new System.Drawing.Size(76, 21);
+            this.radBtnFile.Size = new System.Drawing.Size(93, 27);
             this.radBtnFile.TabIndex = 1;
             this.radBtnFile.TabStop = true;
             this.radBtnFile.Text = "Archivo";
@@ -146,9 +154,10 @@
             // radBtnText
             // 
             this.radBtnText.AutoSize = true;
+            this.radBtnText.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radBtnText.Location = new System.Drawing.Point(24, 38);
             this.radBtnText.Name = "radBtnText";
-            this.radBtnText.Size = new System.Drawing.Size(64, 21);
+            this.radBtnText.Size = new System.Drawing.Size(77, 27);
             this.radBtnText.TabIndex = 0;
             this.radBtnText.TabStop = true;
             this.radBtnText.Text = "Texto";
@@ -165,11 +174,11 @@
             // toolStripCont.ContentPanel
             // 
             this.toolStripCont.ContentPanel.Controls.Add(this.splitContMain);
-            this.toolStripCont.ContentPanel.Size = new System.Drawing.Size(1162, 451);
+            this.toolStripCont.ContentPanel.Size = new System.Drawing.Size(1162, 472);
             this.toolStripCont.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolStripCont.Location = new System.Drawing.Point(0, 171);
+            this.toolStripCont.Location = new System.Drawing.Point(0, 172);
             this.toolStripCont.Name = "toolStripCont";
-            this.toolStripCont.Size = new System.Drawing.Size(1162, 502);
+            this.toolStripCont.Size = new System.Drawing.Size(1162, 501);
             this.toolStripCont.TabIndex = 2;
             this.toolStripCont.Text = "toolStripContainer1";
             // 
@@ -178,26 +187,28 @@
             this.stStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.stStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.stStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStLblAuthor,
             this.toolStripStLblTotal,
             this.toolStripStLblEntropy});
             this.stStrip.Location = new System.Drawing.Point(0, 0);
             this.stStrip.Name = "stStrip";
-            this.stStrip.Size = new System.Drawing.Size(1162, 26);
+            this.stStrip.Size = new System.Drawing.Size(1162, 29);
             this.stStrip.TabIndex = 0;
             // 
             // toolStripStLblTotal
             // 
+            this.toolStripStLblTotal.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStLblTotal.Name = "toolStripStLblTotal";
-            this.toolStripStLblTotal.Size = new System.Drawing.Size(1049, 20);
+            this.toolStripStLblTotal.Size = new System.Drawing.Size(984, 23);
             this.toolStripStLblTotal.Spring = true;
             this.toolStripStLblTotal.Text = "Total Caracteres";
             this.toolStripStLblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // toolStripStLblEntropy
             // 
-            this.toolStripStLblEntropy.Enabled = false;
+            this.toolStripStLblEntropy.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripStLblEntropy.Name = "toolStripStLblEntropy";
-            this.toolStripStLblEntropy.Size = new System.Drawing.Size(98, 20);
+            this.toolStripStLblEntropy.Size = new System.Drawing.Size(110, 23);
             this.toolStripStLblEntropy.Text = "EntropiaTotal";
             // 
             // splitContMain
@@ -216,16 +227,17 @@
             // 
             this.splitContMain.Panel2.Controls.Add(this.splitContResult);
             this.splitContMain.Panel2MinSize = 250;
-            this.splitContMain.Size = new System.Drawing.Size(1162, 451);
-            this.splitContMain.SplitterDistance = 197;
+            this.splitContMain.Size = new System.Drawing.Size(1162, 472);
+            this.splitContMain.SplitterDistance = 201;
             this.splitContMain.TabIndex = 0;
             // 
             // richTxtBxSource
             // 
             this.richTxtBxSource.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTxtBxSource.Font = new System.Drawing.Font("Lucida Console", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTxtBxSource.Location = new System.Drawing.Point(0, 0);
             this.richTxtBxSource.Name = "richTxtBxSource";
-            this.richTxtBxSource.Size = new System.Drawing.Size(1162, 197);
+            this.richTxtBxSource.Size = new System.Drawing.Size(1162, 201);
             this.richTxtBxSource.TabIndex = 0;
             this.richTxtBxSource.Text = "";
             this.richTxtBxSource.TextChanged += new System.EventHandler(this.RichTxtBxSource_TextChanged);
@@ -239,22 +251,23 @@
             // splitContResult.Panel1
             // 
             this.splitContResult.Panel1.Controls.Add(this.treeInfo);
-            this.splitContResult.Panel1MinSize = 450;
+            this.splitContResult.Panel1MinSize = 350;
             // 
             // splitContResult.Panel2
             // 
             this.splitContResult.Panel2.Controls.Add(this.chartEntropy);
-            this.splitContResult.Panel2MinSize = 600;
-            this.splitContResult.Size = new System.Drawing.Size(1162, 250);
+            this.splitContResult.Panel2MinSize = 500;
+            this.splitContResult.Size = new System.Drawing.Size(1162, 267);
             this.splitContResult.SplitterDistance = 497;
             this.splitContResult.TabIndex = 0;
             // 
             // treeInfo
             // 
             this.treeInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeInfo.Font = new System.Drawing.Font("Dubai", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeInfo.Location = new System.Drawing.Point(0, 0);
             this.treeInfo.Name = "treeInfo";
-            this.treeInfo.Size = new System.Drawing.Size(497, 250);
+            this.treeInfo.Size = new System.Drawing.Size(497, 267);
             this.treeInfo.TabIndex = 0;
             // 
             // chartEntropy
@@ -266,7 +279,7 @@
             this.chartEntropy.Legends.Add(legend1);
             this.chartEntropy.Location = new System.Drawing.Point(0, 0);
             this.chartEntropy.Name = "chartEntropy";
-            this.chartEntropy.Size = new System.Drawing.Size(661, 250);
+            this.chartEntropy.Size = new System.Drawing.Size(661, 267);
             this.chartEntropy.TabIndex = 0;
             this.chartEntropy.Text = "Entropia";
             // 
@@ -277,6 +290,14 @@
             this.openFileDialog.Filter = "Archivo (.txt)|*.txt";
             this.openFileDialog.Title = "Cantidad de Informacion";
             // 
+            // toolStripStLblAuthor
+            // 
+            this.toolStripStLblAuthor.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripStLblAuthor.Name = "toolStripStLblAuthor";
+            this.toolStripStLblAuthor.Size = new System.Drawing.Size(53, 23);
+            this.toolStripStLblAuthor.Text = "Autor";
+            this.toolStripStLblAuthor.Click += new System.EventHandler(this.ToolStripStLblAuthor_Click);
+            // 
             // formHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -285,7 +306,8 @@
             this.Controls.Add(this.toolStripCont);
             this.Controls.Add(this.grpBxInfo);
             this.Controls.Add(this.lblTitle);
-            this.MinimumSize = new System.Drawing.Size(1180, 720);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(1180, 675);
             this.Name = "formHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
@@ -333,6 +355,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStLblTotal;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStLblEntropy;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStLblAuthor;
     }
 }
 

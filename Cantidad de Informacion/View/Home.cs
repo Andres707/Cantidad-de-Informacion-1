@@ -17,6 +17,8 @@ namespace Cantidad_de_Informacion
         private void FormHome_Load(object sender, EventArgs e)
         {
             lblFilename.Text = "";
+            toolStripStLblEntropy.Text = "";
+            toolStripStLblTotal.Text = "";
 
             splitContMain.Panel2Collapsed = true;
 
@@ -27,9 +29,11 @@ namespace Cantidad_de_Informacion
 
             chartEntropy.Series.Add("Informacion").Color = Color.RoyalBlue;
             chartEntropy.Series["Informacion"].ChartType = SeriesChartType.Spline;
+            chartEntropy.Series["Informacion"].BorderWidth = 5;
 
             chartEntropy.Series.Add("Entropia").Color = Color.DarkMagenta;
             chartEntropy.Series["Entropia"].ChartType = SeriesChartType.Spline;
+            chartEntropy.Series["Entropia"].BorderWidth = 3;
         }
 
         private void RadBtnText_CheckedChanged(object sender, EventArgs e)
@@ -86,6 +90,9 @@ namespace Cantidad_de_Informacion
             var caracteres = Cantidad_de_Informacion.analizarTexto(texto);
             decimal entropiaTotal = 0;
 
+            chartEntropy.Series["Informacion"].Points.Clear();
+            chartEntropy.Series["Entropia"].Points.Clear();
+
             foreach (DictionaryEntry entry in caracteres)
             {
                 var element = entry.Value as Element;
@@ -100,12 +107,19 @@ namespace Cantidad_de_Informacion
                 chartEntropy.Series["Entropia"].Points.AddXY(x, (double) element.Entropia);
                 treeInfo.Nodes.Add(entry.Key.ToString(), element.Caracter + " - " + element.probFraccion(texto.Length));
             }
+            chartEntropy.Refresh();
 
             toolStripStLblEntropy.Text = "Entropia: " + entropiaTotal;
             toolStripStLblTotal.Text = texto.Length + " caracteres analizados";
 
             btnShowHide.Enabled = true;
             splitContMain.Panel2Collapsed = false;
+        }
+
+        private void ToolStripStLblAuthor_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Desarrollado por: Óskar Calí\n\nSeptiembre 2019", "ABOUT", MessageBoxButtons.OK,
+                MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.ServiceNotification);
         }
     }
 }
