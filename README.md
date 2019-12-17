@@ -14,9 +14,15 @@ Dicha aplicacion esta desarrollada en VS 2019 - Community 16.2.5 :purple_heart:
 
 ## Pantallas
 
-
+![Seleccion de Archivo]
+**Seleccion de Archivo** - _Seleccion de archivo para analizar el texto._
+![Analisis]
+**Analisis de texto** - _Resultado de la cantidad de informacion y entropia del texto._
 
 ## Acerca de
 
 > Desarrollado por:  
 > Oskar Cali :man_technologist: :purple_heart:
+
+[Seleccion de Archivo]: images/Seleccion%20de%20Archivo.jpg
+[Analisis]: images/Analisis.jpg
